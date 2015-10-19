@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:background="@drawable/bg"
+        android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"   android:paddingBottom="10dp"
+
+            >
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:layout_marginTop="20dp"
+
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/icn"
+        android:layout_height="wrap_content" />
+    <EditText android:layout_width="260dp"
+        android:background="@drawable/textfeild"
+      android:layout_marginLeft="10dp"
+        android:hint="Manufacturer"
+        android:textSize="15dp"
+        android:id="@+id/manufacturer"
+        android:paddingLeft="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Brand"
+                android:textSize="15dp"
+                android:id="@+id/brand"
+                android:paddingLeft="20dp"
+android:singleLine="true"
+                android:paddingRight="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Product"
+                android:singleLine="true"
+                android:textSize="15dp"
+                android:id="@+id/product"
+                android:paddingLeft="20dp"
+
+                android:paddingRight="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Size"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:id="@+id/size"
+                android:paddingLeft="20dp"
+                android:inputType="textPassword"
+                android:paddingRight="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+            <EditText android:layout_width="300dp"
+                android:background="@drawable/comment"
+                android:layout_marginTop="20dp"
+                android:hint="Comments"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:inputType="text"
+                android:id="@+id/comments"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:gravity="start"
+                android:paddingTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="100dp"/>
+
+            <Button android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Create"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:id="@+id/create"
+                android:textSize="15dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn1"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

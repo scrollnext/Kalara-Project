@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:background="@drawable/bg"
+        android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"   android:paddingBottom="10dp"
+
+            >
+            <LinearLayout android:layout_width="match_parent"
+                android:id="@+id/image"
+                android:background="@drawable/img2"
+                android:orientation="vertical"
+                android:padding="10dp"
+
+                android:layout_height="wrap_content">
+
+                <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                                        android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+                    <ImageView android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imgprofile"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+
+                        android:id="@+id/image1" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Change Username"
+                android:textSize="15dp"
+                android:id="@+id/changeusername"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Update Password"
+                android:textSize="15dp"
+                android:id="@+id/password"
+                android:paddingLeft="20dp"
+                android:inputType="textPassword"
+                android:paddingRight="10dp"
+                android:drawableRight="@drawable/questiobn"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+            <EditText android:layout_width="wrap_content"
+                android:background="@drawable/textfeild"
+                android:layout_marginTop="20dp"
+                android:hint="Confirm Password"
+                android:textSize="15dp"
+                android:inputType="textPassword"
+                android:id="@+id/confirmpassword"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:id="@+id/update"
+                android:textSize="15dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn1"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

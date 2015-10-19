@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:background="@drawable/bg"
+        android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"   android:paddingBottom="10dp"
+
+            >
+            <LinearLayout android:layout_width="match_parent"
+                android:id="@+id/image"
+                android:background="@drawable/img2"
+                android:orientation="vertical"
+                android:padding="10dp"
+
+                android:layout_height="wrap_content">
+
+                <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+                    <ImageView android:layout_width="100dp"
+                        android:layout_height="100dp"
+
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/imgprofile"
+                        android:id="@+id/image1" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+
+
+                    android:hint="Username : "
+                    android:textSize="15dp"
+                    android:textColor="@color/Coloracrtionprimary"
+                    android:id="@+id/usernameheading"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                    android:textColor="@color/Coloracrtionprimary"
+
+                    android:hint="Hipster"
+                    android:textSize="15dp"
+                    android:id="@+id/username"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+
+
+                    android:hint="Email ID : "
+                    android:textSize="15dp"
+                    android:textColor="@color/Coloracrtionprimary"
+                    android:id="@+id/emailheading"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                    android:textColor="@color/Coloracrtionprimary"
+
+                    android:hint="Hipster@gmail.com"
+                    android:textSize="15dp"
+                    android:id="@+id/email"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+
+
+                    android:hint="Date of Birth : "
+                    android:textSize="15dp"
+                    android:textColor="@color/Coloracrtionprimary"
+                    android:id="@+id/dateheading"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                    android:textColor="@color/Coloracrtionprimary"
+
+                    android:hint="8/09/1989"
+                    android:textSize="15dp"
+                    android:id="@+id/dob1"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+
+
+            <Button android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="30dp"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:id="@+id/logout"
+                android:textSize="15dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn1"/>
+            <TextView android:layout_width="wrap_content"
+                android:textColor="@color/Coloracrtionprimary"
+
+                android:text="Edit Profile"
+                android:textSize="15dp"
+                android:id="@+id/editprofile"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

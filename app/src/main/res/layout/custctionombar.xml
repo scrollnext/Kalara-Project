@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/top">
+  <ImageView android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="15dp"
+       android:id="@+id/menu"
+      android:src="@drawable/menu"/>  
+    <ImageView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+     android:layout_centerVertical="true"
+     android:layout_toRightOf="@+id/menu"
+        android:src="@drawable/icn"/>
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:text="Signin"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/sidepannel"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/notificatinobr"
+            android:id="@+id/notificationbr"
+            android:padding="10dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/sep"
+            android:id="@+id/sepbr"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/profilebr"
+            android:id="@+id/profilebr"
+            android:padding="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
+</LinearLayout>

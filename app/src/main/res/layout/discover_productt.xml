@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/searchbg"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+          android:orientation="horizontal"
+            >
+          <EditText
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:drawableLeft="@drawable/searchicon"
+              android:padding="5dp"
+              android:paddingLeft="10dp"
+              android:paddingRight="5dp"
+              android:paddingBottom="5dp"
+              android:paddingTop="5dp"
+              android:hint=""
+              android:background="@drawable/searchedit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp"
+                android:text="Go"
+                android:textColor="#ffffff"
+                android:background="@drawable/searchbtn"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:padding="10dp"
+        android:background="#ADD8E6"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:padding="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:hint="search"
+            android:background="@drawable/icn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp"
+
+            android:textSize="15dp"
+            android:text="Skin Care Product"
+            android:textColor="@color/Coloracrtionprimary"
+           />
+
+    </LinearLayout>
+
+<GridView
+    android:layout_width="fill_parent"
+    android:columnWidth="200dp"
+    android:layout_gravity="center_horizontal"
+    android:numColumns="2"
+    android:padding="10dp"
+    android:id="@+id/gridview"
+    android:verticalSpacing="5dp"
+    android:gravity="center_horizontal"
+    android:horizontalSpacing="5dp"
+    android:layout_height="fill_parent"></GridView>
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F5F4"
+    android:orientation="vertical"
+
+
+    android:id="@+id/productdetail">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ly1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+android:id="@+id/productname"
+                android:text="Kalra Tea tree Oil"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            android:padding="20dp"
+                >
+
+                <ImageView
+                    android:id="@+id/know_lib_back_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/productrrowleft" />
+
+
+                <LinearLayout
+                    android:id="@+id/innerLay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center">
+
+                    <ImageSwitcher
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageSwitcher"
+                        android:background="#000000"
+
+                        />
+                    <!--
+
+                                        <ImageView
+                                            android:id="@+id/know_lib_img"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+
+                                            android:src="@drawable/imgprofile" />
+                    -->
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/know_lib_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/productarrowright" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp"
+
+                >
+
+                <Gallery
+                    android:id="@+id/myGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    />
+
+
+            </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="383dp"
+    android:background="@drawable/top"
+    android:padding="10dp"
+
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/videoicon"
+
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Product Video"
+        android:textSize="15dp"
+        android:textColor="#b6d1e2"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+    
+</LinearLayout>
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/video" />
+
+<TextView  android:layout_width="wrap_content"
+    android:id="@+id/productdesc"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:textSize="15dp"
+    android:padding="5dp"
+    android:layout_height="wrap_content"></TextView>
+
+    <TextView  android:layout_width="wrap_content"
+        android:id="@+id/productOffer"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:textSize="15dp"
+        android:layout_height="wrap_content"></TextView>-->
+
+
+
+
+     <!--  <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            facebook:style="@style/MyTheme"
+            android:background="@drawable/fb"
+            android:layout_width="300dp"
+            android:src="@drawable/fb"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="45dp"
+            android:visibility="gone"
+            />-->
+      <ImageView
+            android:id="@+id/custom_login_button"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/fb"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Or Signup using your email address"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:text="Signup"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btnbluye"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Already have an account ? "
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/signin"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:text="Signin"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn1"
+        />
+
+
+</LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+            <LinearLayout
+    android:layout_width="383dp"
+    android:background="@drawable/top"
+    android:padding="10dp"
+
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/gift"
+
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:id="@+id/gift" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Customer Ratings and Reviews"
+        android:textSize="15dp"
+        android:textColor="#b6d1e2"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+             <LinearLayout
+                 android:layout_width="300dp"
+                 android:background="#ffffff"
+                 android:layout_marginTop="10dp"
+                 android:paddingBottom="10dp"
+                 android:weightSum="2"
+                 android:orientation="horizontal"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_height="120dp">
+                 <LinearLayout
+                     android:layout_height="match_parent"
+                     android:layout_width="0dp"
+                     android:orientation="vertical"
+                     android:layout_weight="1"
+                     >
+
+<TextView
+    android:layout_width="wrap_content"
+    android:text="Average Rating"
+    android:textSize="15dp"
+    android:padding="10dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content" />
+                     <LinearLayout
+                         android:layout_height="wrap_content"
+                         android:layout_width="wrap_content"
+                         android:layout_gravity="center_horizontal"
+                         android:orientation="horizontal"
+
+                         >
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:text="3.5/5"
+                             android:textSize="20dp"
+
+                             android:layout_gravity="center_horizontal"
+                             android:layout_height="wrap_content" />
+
+
+
+                     </LinearLayout>
+                     <LinearLayout
+                         android:layout_height="wrap_content"
+                         android:layout_width="wrap_content"
+                         android:layout_gravity="center_horizontal"
+                         android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+
+                         >
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:text="From 12 Customers"
+                             android:textSize="16dp"
+
+                             android:layout_gravity="center_horizontal"
+                             android:layout_height="wrap_content" />
+
+
+
+                     </LinearLayout>
+                     </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_height="match_parent"
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+
+
+                     >
+                 </LinearLayout>
+
+             </LinearLayout>
+             <ListView
+                 android:layout_width="fill_parent"
+                 android:layout_height="200dp"></ListView>
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:text="Have an experience to share ?"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_height="wrap_content" />
+
+             <Button
+                 android:id="@+id/rateus"
+                 android:layout_width="300dp"
+                 android:layout_height="40dp"
+                 android:layout_marginTop="10dp"
+                 android:textSize="15dp"
+                 android:text="Rate it now"
+                 android:textAllCaps="false"
+                 android:paddingBottom="10dp"
+                 android:textColor="#ffffff"
+                 android:layout_gravity="center_horizontal"
+                 android:background="@drawable/btn1"
+                 />
+         </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
