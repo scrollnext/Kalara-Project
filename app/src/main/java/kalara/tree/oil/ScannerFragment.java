@@ -1,6 +1,5 @@
 package kalara.tree.oil;
 
-import android.app.ProgressDialog;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -20,7 +19,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -36,21 +34,13 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
     private ZXingScannerView mScannerView;
     private boolean mFlash;
     private boolean mAutoFocus;
-    ProgressDialog dialog;
-
     private ArrayList<Integer> mSelectedIndices;
     private int mCameraId = -1;
-    static int live = 0;
-    static String scanresult1;
-    String name;
-    String externalid;
-    String gettext;
-    ArrayList<HashMap<String, String>> Datalist1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
         mScannerView = new ZXingScannerView(getActivity());
-        if (state != null) {
+        if(state != null) {
             mFlash = state.getBoolean(FLASH_STATE, false);
             mAutoFocus = state.getBoolean(AUTO_FOCUS_STATE, true);
             mSelectedIndices = state.getIntegerArrayList(SELECTED_FORMATS);
@@ -71,13 +61,13 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
         setHasOptionsMenu(false);
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
         MenuItem menuItem;
 
-       if(mFlash) {
-            menuItem = menu.add(Menu.NONE,R.id.menu_flash, 0, R.string.flash_on);
+        if(mFlash) {
+            menuItem = menu.add(Menu.NONE, R.id.menu_flash, 0, R.string.flash_on);
         } else {
             menuItem = menu.add(Menu.NONE, R.id.menu_flash, 0, R.string.flash_off);
         }
@@ -101,7 +91,7 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
-       switch (item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.menu_flash:
                 mFlash = !mFlash;
                 if(mFlash) {
@@ -132,9 +122,8 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
 
-
-}
     @Override
     public void onResume() {
         super.onResume();
@@ -142,7 +131,6 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
         mScannerView.startCamera(mCameraId);
         mScannerView.setFlash(mFlash);
         mScannerView.setAutoFocus(mAutoFocus);
-
     }
 
     @Override
@@ -161,43 +149,29 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
             Ringtone r = RingtoneManager.getRingtone(getActivity().getApplicationContext(), notification);
             r.play();
         } catch (Exception e) {}
+       // showMessageDialog("Contents = " + rawResult.getText() + ", Format = " + rawResult.getBarcodeFormat().toString());
 
+        showMessageDialog(""+rawResult.getText());
     }
 
     public void showMessageDialog(String message) {
         DialogFragment fragment = MessageDialogFragment.newInstance("Scan Results", message, this);
         fragment.show(getActivity().getSupportFragmentManager(), "scan_results");
-
-
     }
 
     public void closeMessageDialog() {
         closeDialog("scan_results");
-
     }
 
     public void closeFormatsDialog() {
         closeDialog("format_selector");
-       
     }
 
     public void closeDialog(String dialogName) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         DialogFragment fragment = (DialogFragment) fragmentManager.findFragmentByTag(dialogName);
         if(fragment != null) {
-           fragment.dismiss();
-           /* Bundle bundle=new Bundle();
-            bundle.putInt("live",live);
-            bundle.putString("scanresult",scanresult1);
-            Fragment fragment1=new HomeScreen();
-            fragment1.setArguments(bundle);
-            FragmentManager fragmentManager1 = getFragmentManager();
-            fragmentManager1.beginTransaction().addToBackStack(null)
-                    .replace(R.id.content_frame, fragment1)
-                    .commit();*/
-           // Toast.makeText(getActivity(),"hellllo",Toast.LENGTH_SHORT).show();
-         //   getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, 2);
-
+            fragment.dismiss();
         }
     }
 
@@ -215,7 +189,7 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
         setupFormats();
     }
 
-    @Override
+
     public void onCameraSelected(int cameraId) {
         mCameraId = cameraId;
         mScannerView.startCamera(mCameraId);
@@ -247,5 +221,4 @@ public class ScannerFragment extends Fragment implements MessageDialogFragment.M
         closeMessageDialog();
         closeFormatsDialog();
     }
-
 }

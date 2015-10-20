@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -20,6 +22,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -29,11 +34,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by avigma19 on 10/14/2015.
  */
-public class Product_detail extends Fragment implements View.OnClickListener{
+public class Product_detail extends Fragment implements View.OnClickListener {
     private Button btn_reportdelete,rateus;
  //  ArrayList<Knowlegde_item> knowlegde_items=new ArrayList<Knowlegde_item>();
     private TextView txt_date, txt_size, txt_barcode, txt_comments, txt_product;
@@ -43,15 +50,22 @@ public class Product_detail extends Fragment implements View.OnClickListener{
     int position;
     String id;
     String starvalue="0";
+    private YouTubePlayer YPlayer;
     ImageView imageView;
     ArrayList<String> list = new ArrayList<String>();
-    String product_name,productcategory,productimage,productid;
+    String product_name,productcategory,productimage,productid,product_url;
     int pos;
     Gallery gallery;
     ProgressDialog pDialog;
     ImageView myView;
     View layout;
+    SurfaceView videoSurface;
+    public static final String API_KEY = "AIzaSyCIWPU6kRlikh12pnqtLRbY8W9TcW76zEA";
 
+    //http://youtu.be/<VIDEO_ID>
+    public  String VIDEO_ID ;
+
+    // VideoView mVideoView;
     //the images to display
     int[] imageIDs = {
            /* R.drawable.mathemetics,
@@ -76,6 +90,10 @@ public class Product_detail extends Fragment implements View.OnClickListener{
         layout = inflater.inflate(R.layout.product_detail, container, false);
         product_name=getArguments().getString("productname");
         productcategory=getArguments().getString("productcategory");
+        product_url=getArguments().getString("product_url");
+
+        System.out.println("===product_url============="+product_url);
+
         productid=getArguments().getString("id");
         position=getArguments().getInt("position");
         System.out.println("values are" + product_name + " " + productcategory + " " + id + " " + position);
@@ -102,6 +120,87 @@ public class Product_detail extends Fragment implements View.OnClickListener{
         img_next=(ImageView)layout.findViewById(R.id.know_lib_next_arrow);
         // Note that Gallery view is deprecated in Android 4.1---
         gallery= (Gallery) layout.findViewById(R.id.myGallery);
+
+         VIDEO_ID= extractYoutubeId(product_url);
+
+       System.out.println("=================VIDEO_ID===="+VIDEO_ID);
+        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.youtube_fragment, youTubePlayerFragment).commit();
+
+        youTubePlayerFragment.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
+
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider arg0, YouTubePlayer youTubePlayer, boolean b) {
+                if (!b) {
+                   // YPlayer = youTubePlayer;
+                    //YPlayer.setFullscreen(false);
+                    youTubePlayer.loadVideo("f-JL0Iucdq0");
+                    youTubePlayer.play();
+                }
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+      //  YouTubePlayerView youTubeView = (YouTubePlayerView)layout. findViewById(R.id.youtube_player);
+       // youTubeView.initialize(API_KEY, this);
+
+
+        /** Initializing YouTube player view **/
+       // YouTubePlayerView youTubePlayerView = (YouTubePlayerView)layout.findViewById(R.id.youtube_player);
+      //  youTubePlayerView.initialize(API_KEY, this);
+
+       /* mVideoView=(VideoView)layout.findViewById(R.id.video);
+
+
+
+        pDialog = new ProgressDialog(getActivity());
+
+        // Set progressbar message
+        pDialog.setMessage("Buffering...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        // Show progressbar
+        pDialog.show();
+
+        try {
+            // Start the MediaController
+            MediaController mediacontroller = new MediaController(getActivity());
+            mediacontroller.setAnchorView(mVideoView);
+
+            Uri videoUri = Uri.parse(product_url);
+            mVideoView.setMediaController(mediacontroller);
+            mVideoView.setVideoURI(videoUri);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        mVideoView.requestFocus();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            // Close the progress bar and play the video
+            public void onPrepared(MediaPlayer mp) {
+                pDialog.dismiss();
+                mVideoView.start();
+            }
+        });
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            public void onCompletion(MediaPlayer mp) {
+                if (pDialog.isShowing()) {
+                    pDialog.dismiss();
+                }
+
+            }
+        });*/
+
 
 
 /*
@@ -181,6 +280,101 @@ public class Product_detail extends Fragment implements View.OnClickListener{
         });*/
         return layout;
     }
+
+    private String extractYoutubeId(String url) {
+
+        String video_id = "";
+        if (url != null && url.trim().length() > 0 && url.startsWith("http")) {
+
+            String expression = "^.*((youtu.be" + "\\/)"
+                    + "|(v\\/)|(\\/u\\/w\\/)|(embed\\/)|(watch\\?))\\??v?=?([^#\\&\\?]*).*";
+            CharSequence input = url;
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(input);
+            if (matcher.matches()) {
+                String groupIndex1 = matcher.group(7);
+                if (groupIndex1 != null && groupIndex1.length() == 11)
+                    video_id = groupIndex1;
+            }
+        }
+
+        return video_id;
+    }
+
+
+
+
+   /* @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+
+        *//** add listeners to YouTubePlayer instance **//*
+        youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
+        youTubePlayer.setPlaybackEventListener(playbackEventListener);
+
+        *//** Start buffering **//*
+        if (!wasRestored) {
+            youTubePlayer.cueVideo("nCD2hj6zJEc");
+        }
+
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+        Toast.makeText(getActivity(), "Failured to Initialize!", Toast.LENGTH_LONG).show();
+    }
+
+    private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
+
+        @Override
+        public void onBuffering(boolean arg0) {
+        }
+
+        @Override
+        public void onPaused() {
+        }
+
+        @Override
+        public void onPlaying() {
+        }
+
+        @Override
+        public void onSeekTo(int arg0) {
+        }
+
+        @Override
+        public void onStopped() {
+        }
+
+    };
+
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+
+
+        public void onAdStarted() {
+        }
+
+
+        public void onError(YouTubePlayer.ErrorReason arg0) {
+        }
+
+
+        public void onLoaded(String arg0) {
+        }
+
+
+        public void onLoading() {
+        }
+
+
+        public void onVideoEnded() {
+        }
+
+
+        public void onVideoStarted() {
+        }
+    };
+*/
+
 
     @Override
     public void onClick(View v) {
@@ -279,6 +473,7 @@ if(v.getId()==R.id.rateus){
 
 
     }
+
 
     public class ImageAdapter extends BaseAdapter {
         private Context context;

@@ -60,11 +60,13 @@ public class Discover extends Fragment {
 
                     String productname=Datalist1.get(position).get("product_name").toString();
                     String productcategory=Datalist1.get(position).get("product_categories").toString();
+                    String product_url=Datalist1.get(position).get("product_video").toString();
               //  String productid=Datalist1.get(position).get("").toString();
                     String id1=Datalist1.get(position).get("id").toString();
                     Bundle bundle=new Bundle();
                     bundle.putString("productname",productname);
                     bundle.putString("productcategory",productcategory);
+                    bundle.putString("product_url",product_url);
                 bundle.putInt("position", position);
                 bundle.putString("id",id1);
 

@@ -3,11 +3,14 @@ package kalara.tree.oil;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import kalara.tree.oil.R;
+import android.widget.Toast;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MessageDialogFragment extends DialogFragment {
@@ -44,9 +47,20 @@ public class MessageDialogFragment extends DialogFragment {
                     mListener.onDialogPositiveClick(MessageDialogFragment.this);
                     int live=1;
 
-                    Bundle bundle=new Bundle();
-                    bundle.putInt("live",live);
-                    bundle.putString("scanresult", ScannerFragment.scanresult1);
+
+                    try {
+                        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mMessage));
+                        startActivity(myIntent);
+                    } catch (ActivityNotFoundException e) {
+                       //Toast.makeText(getActivity(), "No application can handle this request."
+                         //       + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(), mMessage, Toast.LENGTH_LONG).show();
+                    }
+
+                  //  Bundle bundle=new Bundle();
+                   // bundle.putInt("live",live);
+                   // bundle.putString("scanresult", ScannerFragment.scanresult1);
                     /*Fragment fragment1=new HomeScreen();
                     fragment1.setArguments(bundle);
                     FragmentManager fragmentManager1 = getFragmentManager();

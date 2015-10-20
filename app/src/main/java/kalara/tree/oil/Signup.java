@@ -295,7 +295,7 @@ connectWithHttpPost(user,mobile,email,pass,dob1);
                                 Toast.makeText(getActivity(), "Submitted Successfully..", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(getActivity(), "Failed to submit Details..", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "This User Already Registered..", Toast.LENGTH_SHORT).show();
                             }
 
                         }

@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-android:id="@+id/productname"
+                android:id="@+id/productname"
                 android:text="Kalra Tea tree Oil"
                 android:textSize="17sp"
                 android:padding="10dp"
@@ -138,12 +138,40 @@ android:id="@+id/productname"
         android:layout_height="wrap_content" />
     
 </LinearLayout>
-    <VideoView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/video" />
 
-<TextView  android:layout_width="wrap_content"
+   <!-- <FrameLayout
+        android:id="@+id/videoSurfaceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    <SurfaceView
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content" />
+
+    </FrameLayout>-->
+
+
+    <!--<com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+
+  <!--  <com.google.android.youtube.player.YouTubePlayerView
+         android:id="@+id/youtube_player"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="#fff"
+         android:padding="5dp" />-->
+
+    <FrameLayout
+        android:id="@+id/youtube_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView  android:layout_width="wrap_content"
     android:id="@+id/productdesc"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
@@ -253,14 +281,14 @@ android:id="@+id/productname"
 
 </LinearLayout>
              <LinearLayout
-                 android:layout_width="300dp"
+                 android:layout_width="330dp"
                  android:background="#ffffff"
                  android:layout_marginTop="10dp"
                  android:paddingBottom="10dp"
                  android:weightSum="2"
                  android:orientation="horizontal"
                  android:layout_gravity="center_horizontal"
-                 android:layout_height="120dp">
+                 android:layout_height="160dp">
                  <LinearLayout
                      android:layout_height="match_parent"
                      android:layout_width="0dp"
@@ -319,12 +347,203 @@ android:id="@+id/productname"
                  <LinearLayout
                      android:layout_height="match_parent"
                      android:layout_width="0dp"
-                     android:layout_weight="1"
+                     android:orientation="vertical"
+                     android:layout_weight="1">
 
+                     <LinearLayout
+                         android:layout_marginTop="10dp"
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
 
-                     >
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerHorizontal="true"
+                         android:layout_centerVertical="true"
+                         android:textAppearance="?android:attr/textAppearanceSmall"
+                         android:text="5"
+                         android:id="@+id/textView" />
+                     <ProgressBar
+                         android:id="@+id/progressBar1"
+                         style="@android:style/Widget.ProgressBar.Horizontal"
+                         android:layout_width="130dp"
+                         android:layout_height="10dp"
+                         android:layout_centerHorizontal="true"
+                         android:layout_centerVertical="true"
+                         android:indeterminate="false"
+                         android:max="100"
+                         android:progressDrawable="@drawable/style_horizontal"
+                         android:layout_marginLeft="5dp"
+                         android:secondaryProgress="10" />
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textAppearance="?android:attr/textAppearanceSmall"
+                         android:text="5"
+                         android:layout_centerVertical="true"
+                         android:layout_centerHorizontal="true"
+                         android:layout_marginLeft="5dp"
+                         android:id="@+id/textView1" />
                  </LinearLayout>
 
+
+                     <LinearLayout
+                         android:layout_marginTop="10dp"
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="4"
+                             android:id="@+id/textViewp2" />
+                         <ProgressBar
+                             android:id="@+id/progressBar2"
+                             style="@android:style/Widget.ProgressBar.Horizontal"
+                             android:layout_width="130dp"
+                             android:layout_height="10dp"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:indeterminate="false"
+                             android:max="100"
+                             android:progressDrawable="@drawable/style_horizontal"
+                             android:layout_marginLeft="5dp"
+                             android:secondaryProgress="10" />
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="5"
+                             android:layout_centerVertical="true"
+                             android:layout_centerHorizontal="true"
+                             android:layout_marginLeft="5dp"
+                             android:id="@+id/textViewt2" />
+                     </LinearLayout>
+
+
+                     <LinearLayout
+                         android:layout_marginTop="10dp"
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="3"
+                             android:id="@+id/textViewp3" />
+                         <ProgressBar
+                             android:id="@+id/progressBar3"
+                             style="@android:style/Widget.ProgressBar.Horizontal"
+                             android:layout_width="130dp"
+                             android:layout_height="10dp"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:indeterminate="false"
+                             android:max="100"
+                             android:progressDrawable="@drawable/style_horizontal"
+                             android:layout_marginLeft="5dp"
+                             android:secondaryProgress="10" />
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="5"
+                             android:layout_centerVertical="true"
+                             android:layout_centerHorizontal="true"
+                             android:layout_marginLeft="5dp"
+                             android:id="@+id/textViewt3" />
+                     </LinearLayout>
+
+                     <LinearLayout
+                         android:layout_marginTop="10dp"
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="2"
+                             android:id="@+id/textViewp4" />
+                         <ProgressBar
+                             android:id="@+id/progressBar4"
+                             style="@android:style/Widget.ProgressBar.Horizontal"
+                             android:layout_width="130dp"
+                             android:layout_height="10dp"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:indeterminate="false"
+                             android:max="100"
+                             android:progressDrawable="@drawable/style_horizontal"
+                             android:layout_marginLeft="5dp"
+                             android:secondaryProgress="10" />
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="5"
+                             android:layout_centerVertical="true"
+                             android:layout_centerHorizontal="true"
+                             android:layout_marginLeft="5dp"
+                             android:id="@+id/textViewt4" />
+                     </LinearLayout>
+
+
+                     <LinearLayout
+                         android:layout_marginTop="10dp"
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="1"
+                             android:id="@+id/textViewp5" />
+                         <ProgressBar
+                             android:id="@+id/progressBar5"
+                             style="@android:style/Widget.ProgressBar.Horizontal"
+                             android:layout_width="130dp"
+                             android:layout_height="10dp"
+                             android:layout_centerHorizontal="true"
+                             android:layout_centerVertical="true"
+                             android:indeterminate="false"
+                             android:max="100"
+                             android:progressDrawable="@drawable/style_horizontal"
+                             android:layout_marginLeft="5dp"
+                             android:secondaryProgress="10" />
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textAppearance="?android:attr/textAppearanceSmall"
+                             android:text="5"
+                             android:layout_centerVertical="true"
+                             android:layout_centerHorizontal="true"
+                             android:layout_marginLeft="5dp"
+                             android:id="@+id/textViewt5" />
+                     </LinearLayout>
+
+                 </LinearLayout>
              </LinearLayout>
              <ListView
                  android:layout_width="fill_parent"
