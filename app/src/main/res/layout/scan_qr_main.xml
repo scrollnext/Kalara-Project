@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:background="#3D3D3D"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/linea">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:id="@+id/sacc"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
+
+
+
+        <fragment android:name="kalara.tree.oil.Scanner1"
+            android:id="@+id/scanner_fragment"
+            android:paddingRight="10dp"
+
+            android:layout_centerHorizontal="true"
+
+            android:layout_width="280dp"
+
+            android:layout_height="300dp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

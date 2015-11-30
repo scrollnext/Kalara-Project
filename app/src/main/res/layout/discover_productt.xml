@@ -24,13 +24,15 @@
               android:layout_height="wrap_content"
               android:layout_gravity="center_vertical"
               android:drawableLeft="@drawable/searchicon"
-              android:padding="5dp"
+android:drawablePadding="10dp"
               android:paddingLeft="10dp"
               android:paddingRight="5dp"
               android:paddingBottom="5dp"
               android:paddingTop="5dp"
               android:hint=""
-              android:background="@drawable/searchedit"/>
+
+              android:background="@drawable/searchedit"
+              android:id="@+id/search" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,7 +40,8 @@
                 android:padding="8dp"
                 android:text="Go"
                 android:textColor="#ffffff"
-                android:background="@drawable/searchbtn"/>
+                android:background="@drawable/searchbtn"
+                android:id="@+id/go" />
 
         </LinearLayout>
 
@@ -48,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 android:padding="10dp"
-        android:background="#ADD8E6"
+        android:background="@drawable/blue_bg"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         >
@@ -63,14 +66,15 @@ android:padding="10dp"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:hint="search"
-            android:background="@drawable/icn"/>
+            android:background="@drawable/skincareicn"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:padding="8dp"
+            android:padding="5dp"
 
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:text="Skin Care Product"
             android:textColor="@color/Coloracrtionprimary"
            />
@@ -79,14 +83,18 @@ android:padding="10dp"
 
 <GridView
     android:layout_width="fill_parent"
-    android:columnWidth="200dp"
+    android:columnWidth="180dp"
     android:layout_gravity="center_horizontal"
     android:numColumns="2"
     android:padding="10dp"
-    android:id="@+id/gridview"
     android:verticalSpacing="5dp"
-    android:gravity="center_horizontal"
     android:horizontalSpacing="5dp"
+    android:stretchMode="columnWidth"
+    android:id="@+id/gridview"
+    android:scrollbars="none"
+
+    android:gravity="center_horizontal"
+
     android:layout_height="fill_parent"></GridView>
 
 

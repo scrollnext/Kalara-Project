@@ -20,7 +20,7 @@
                 android:orientation="vertical"
                 android:padding="10dp"
 
-                android:layout_height="wrap_content">
+                android:layout_height="150dp">
 
                 <RelativeLayout android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
 
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/imgprofile"
+                        android:background="@drawable/imgprofile"
                         android:id="@+id/image1" />
 
                 </RelativeLayout>
@@ -59,7 +59,7 @@
                 <TextView android:layout_width="wrap_content"
                     android:textColor="@color/Coloracrtionprimary"
 
-                    android:hint="Hipster"
+                    android:hint=""
                     android:textSize="15dp"
                     android:id="@+id/username"
 
@@ -85,7 +85,7 @@
                 <TextView android:layout_width="wrap_content"
                     android:textColor="@color/Coloracrtionprimary"
 
-                    android:hint="Hipster@gmail.com"
+                    android:hint=""
                     android:textSize="15dp"
                     android:id="@+id/email"
 
@@ -112,7 +112,7 @@
                 <TextView android:layout_width="wrap_content"
                     android:textColor="@color/Coloracrtionprimary"
 
-                    android:hint="8/09/1989"
+                    android:hint=""
                     android:textSize="15dp"
                     android:id="@+id/dob1"
 

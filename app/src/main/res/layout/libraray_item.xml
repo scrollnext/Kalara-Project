@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-
+android:paddingRight="15dp"
+android:paddingLeft="15dp"
+android:paddingBottom="15dp"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:padding="10dp"
+       android:paddingLeft="5dp"
         android:weightSum="4"
+        android:paddingBottom="10dp"
         android:background="@drawable/cell"
-        android:layout_height="wrap_content">
+        android:layout_height="110dp">
         <ImageView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
+            android:layout_weight="0.7"
+android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dp"
             android:src="@drawable/imgcicic"
-            android:layout_height="wrap_content" />
+            android:layout_height="60dp"
+            android:id="@+id/imageview" />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="2.5"
             android:layout_marginLeft="10dp"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,7 +36,7 @@
         android:layout_width="wrap_content"
         android:text="Kalara Tea tree oil"
         android:id="@+id/heading"
-        android:textSize="15dp"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:layout_height="wrap_content" />
            <TextView
@@ -108,7 +113,7 @@
         </LinearLayout>
         <ImageView
             android:layout_width="0dp"
-            android:src="@drawable/arrow"
+            android:src="@drawable/arrow2"
             android:layout_weight="0.5"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content" />

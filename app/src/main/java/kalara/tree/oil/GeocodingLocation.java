@@ -15,6 +15,7 @@ import java.util.Locale;
 public class GeocodingLocation {
 
     private static final String TAG = "GeocodingLocation";
+    static Address address;
 
     public static void getAddressFromLocation(final String locationAddress,
                                               final Context context, final Handler handler) {
@@ -26,7 +27,7 @@ public class GeocodingLocation {
                 try {
                     List<Address> addressList = geocoder.getFromLocationName(locationAddress, 1);
                     if (addressList != null && addressList.size() > 0) {
-                        Address address = addressList.get(0);
+                         address = addressList.get(0);
                         StringBuilder sb = new StringBuilder();
                         sb.append(address.getLatitude()).append("\n");
                         sb.append(address.getLongitude()).append("\n");
@@ -43,6 +44,8 @@ public class GeocodingLocation {
                         result = "Address: " + locationAddress +
                                 "\n\nLatitude and Longitude :\n" + result;
                         bundle.putString("address", result);
+                        bundle.putDouble("latitude", address.getLatitude());
+                        bundle.putDouble("logitude",address.getLongitude());
                         message.setData(bundle);
                     } else {
                         message.what = 1;
@@ -50,6 +53,8 @@ public class GeocodingLocation {
                         result = "Address: " + locationAddress +
                                 "\n Unable to get Latitude and Longitude for this address location.";
                         bundle.putString("address", result);
+                        bundle.putDouble("latitude",address.getLatitude());
+                        bundle.putDouble("logitude",address.getLongitude());
                         message.setData(bundle);
                     }
                     message.sendToTarget();

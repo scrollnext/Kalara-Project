@@ -6,6 +6,9 @@
 
         <item name="colorPrimary">@color/Coloracrtionprimary</item>
         <item name="colorPrimaryDark">@color/ColorPrimary</item>
+
+            <item name="android:homeAsUpIndicator">@drawable/menu</item>
+
         <!-- Customize your theme here. -->
     </style>
 
@@ -40,7 +43,8 @@
     </style>
     <style name="StarRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/star_rating_bar_full</item>
-        <item name="android:minHeight">15dp</item>
-        <item name="android:maxHeight">40dp</item>
+        <item name="android:minHeight">20dp</item>
+        <item name="android:maxHeight">50dp</item>
+
     </style>
 </resources>

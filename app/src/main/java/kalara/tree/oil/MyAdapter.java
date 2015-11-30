@@ -8,12 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import kalara.tree.oil.R;
+
 import java.util.Collections;
 import java.util.List;
-/**
- * Created by avigma19 on 10/1/2015.
- */
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     List<NavDrawerItem> data = Collections.emptyList();
     private LayoutInflater inflater;

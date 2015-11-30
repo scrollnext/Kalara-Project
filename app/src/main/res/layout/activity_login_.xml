@@ -6,19 +6,19 @@
     android:orientation="vertical">
 
     <ScrollView android:layout_width="match_parent"
-        android:paddingBottom="10dp"
+        android:paddingBottom="5dp"
         android:background="@drawable/bg"
         android:layout_height="match_parent">
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"   android:paddingBottom="10dp"
+    android:orientation="vertical"   android:paddingBottom="5dp"
 
     >
     <LinearLayout android:layout_width="match_parent"
         android:id="@+id/image"
         android:background="@drawable/img2"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="140dp">
         
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,24 +57,25 @@
         android:background="@drawable/fb"
         android:layout_width="300dp"
        android:src="@drawable/fb"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_height="45dp"
-        android:visibility="gone"
+android:visibility="gone"
         />
     <ImageView
         android:id="@+id/custom_login_button"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/fb"
+
         />
      <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="13dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textColor="#2F3D4B"
             android:text="Or"/>
       <TextView android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
             android:text="Signin using your registered email"/>
       <EditText android:layout_width="wrap_content"
           android:background="@drawable/textfeild"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:hint="Username"
           android:textSize="15dp"
           android:singleLine="true"
@@ -96,7 +97,7 @@
           android:layout_height="wrap_content"/>
       <EditText android:layout_width="wrap_content"
           android:background="@drawable/textfeild"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:hint="Password"
           android:textSize="15dp"
           android:id="@+id/password"
@@ -109,7 +110,7 @@
           android:layout_height="wrap_content"/>
       <RelativeLayout android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           >
           <LinearLayout android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -121,19 +122,21 @@
                   android:button="@drawable/checkbox"
                   android:text="Remember me"
                   android:paddingLeft="10dp"
+                  android:id="@+id/remember"
                   android:textSize="15dp"
                    android:textColor="#2F3D4B"
                   android:layout_height="wrap_content"/>
               
               
-              
+
           </LinearLayout>
+
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
               android:paddingRight="10dp"
                android:textSize="15dp"
-              
+
                    android:textColor="#2F3D4B"
               android:text="Forgot password"
               android:id="@+id/forgot" />
@@ -142,7 +145,7 @@
       </RelativeLayout>
       <Button android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:text="Signin"
           android:textAllCaps="false"
           android:textColor="#ffffff"
@@ -154,9 +157,10 @@
       <TextView android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Or"
-          android:layout_marginTop="30dp"
+          android:layout_marginTop="10dp"
           android:layout_gravity="center_horizontal"
-          android:textColor="#2F3D4B"/>
+          android:textColor="#2F3D4B"
+         />
       <TextView android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Create new account"

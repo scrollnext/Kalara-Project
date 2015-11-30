@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-android:paddingLeft="15dp"
     android:paddingRight="15dp"
-    android:paddingTop="15dp"
+    android:paddingLeft="15dp"
+    android:paddingBottom="15dp"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,12 +11,12 @@ android:paddingLeft="15dp"
         android:padding="5dp"
         android:weightSum="4"
         android:background="@drawable/cell"
-        android:layout_height="150dp">
+        android:layout_height="130dp">
         <ImageView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
 
-
+            android:paddingTop="5dp"
             android:layout_height="100dp"
             android:id="@+id/image" />
         <LinearLayout
@@ -24,7 +24,7 @@ android:paddingLeft="15dp"
             android:layout_weight="2.5"
             android:layout_marginLeft="10dp"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -34,7 +34,9 @@ android:paddingLeft="15dp"
                     android:layout_width="wrap_content"
                     android:text="Kalara Tea tree oil"
                     android:id="@+id/heading"
-                    android:textSize="15dp"
+                    android:textSize="18dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textStyle="bold"
                     android:textColor="@color/Coloracrtionprimary"
                     android:layout_height="wrap_content" />
@@ -57,6 +59,8 @@ android:paddingLeft="15dp"
                     android:text="123456"
                     android:textColor="@color/Coloracrtionprimary"
                     android:id="@+id/reporter"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textSize="13dp"
                     android:layout_height="wrap_content" />
 
@@ -78,6 +82,8 @@ android:paddingLeft="15dp"
                     android:textColor="@color/Coloracrtionprimary"
                     android:id="@+id/barcode"
                     android:textSize="13dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -98,6 +104,8 @@ android:paddingLeft="15dp"
                     android:textColor="@color/Coloracrtionprimary"
                     android:id="@+id/product"
                     android:textSize="13dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -118,6 +126,8 @@ android:paddingLeft="15dp"
                     android:textColor="@color/Coloracrtionprimary"
                     android:id="@+id/size"
                     android:textSize="13dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -137,6 +147,8 @@ android:paddingLeft="15dp"
                     android:text="123456"
                     android:textColor="@color/Coloracrtionprimary"
                     android:id="@+id/status"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textSize="13dp"
                     android:layout_height="wrap_content" />
 
@@ -151,5 +163,6 @@ android:paddingLeft="15dp"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
 
 </LinearLayout>

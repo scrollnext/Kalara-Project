@@ -2,17 +2,17 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
 android:layout_gravity="center_horizontal"
 android:padding="15dp"
         android:background="@drawable/slide_img"
-        android:layout_height="wrap_content">
+        android:layout_height="190dp">
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:id="@+id/productimage"
             android:src="@drawable/icn"/>
         <TextView
@@ -21,13 +21,15 @@ android:padding="15dp"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:id="@+id/productname"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:layout_marginTop="6dp"
             android:text="Kalara Tea Tree oil "/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
+
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
@@ -43,6 +45,8 @@ android:padding="15dp"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:id="@+id/categoryname"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:layout_marginTop="6dp"
             android:text="Kalara Tea Tree oil "/>
         </LinearLayout>
@@ -50,31 +54,32 @@ android:padding="15dp"
     android:layout_width="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="3dp"
     android:layout_height="wrap_content">
     <ImageView
         android:layout_width="wrap_content"
-
+android:id="@+id/image1"
         android:layout_height="wrap_content"
-        android:src="@drawable/fill"/>
+        android:src="@drawable/nill"/>
     <ImageView
         android:layout_width="wrap_content"
-
+        android:id="@+id/image2"
         android:layout_height="wrap_content"
-        android:src="@drawable/fill"/>
+        android:src="@drawable/nill"/>
     <ImageView
         android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-        android:src="@drawable/half"/>
-    <ImageView
-        android:layout_width="wrap_content"
-
+        android:id="@+id/image3"
         android:layout_height="wrap_content"
         android:src="@drawable/nill"/>
     <ImageView
         android:layout_width="wrap_content"
 
+        android:id="@+id/image4"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nill"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:id="@+id/image5"
         android:layout_height="wrap_content"
         android:src="@drawable/nill"/>
 

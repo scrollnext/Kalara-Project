@@ -9,11 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -34,9 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by avigma19 on 10/7/2015.
- */
+
 public class Knowledge  extends Fragment {
     ProgressDialog pDialog;
 
@@ -56,6 +54,25 @@ List<Knowlegde_item>  knowlegde_items=new ArrayList<Knowlegde_item>();
         Navigation_Acivity.sidepannel.setVisibility(View.VISIBLE);
         Datalist1=new ArrayList<HashMap<String,String>>();
         getproducts();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+
+               String id1=Datalist1.get(position).get("id");
+
+                Fragment loginActivity1=new Knowledge_detail_page();
+                Bundle bundle=new Bundle();
+                bundle.putString("id",id1);
+                bundle.putInt("position",position);
+                loginActivity1.setArguments(bundle);
+                android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().addToBackStack(null)
+                        .replace(R.id.container_body, loginActivity1).commit();
+
+            }
+        });
         return layout;
     }
     protected void getproducts() {
@@ -94,7 +111,7 @@ List<Knowlegde_item>  knowlegde_items=new ArrayList<Knowlegde_item>();
                 // Because of we are sending a GET request, we have to pass the
                 // values through the URL
 
-                String url = "http://www.support-4-pc.com/clients/kalara/subscriber.php?action=getproduct";
+                String url = "http://www.support-4-pc.com/clients/kalara/admin/sub.php?action=getlibrary";
 
 
                 System.out.println("=======url======" + url);
@@ -208,31 +225,48 @@ List<Knowlegde_item>  knowlegde_items=new ArrayList<Knowlegde_item>();
                                     object1 = array.getJSONObject(i);
                                     String id = object1.getString("id");
                                     // String report = object1.getString("report");
-                                    String barcode = object1.getString("barcode");
-                                    //String product = object1.getString("product");
-                                    String size = object1.getString("size");
+                                    String userid = object1.getString("userid");
+                                   String product = object1.getString("product");
+                                    String manufacturer = object1.getString("manufacturer");
 
-                                    String status = object1.getString("status");
-                                    String product_categories = object1.getString("category");
-                                    String product_name = object1.getString("product_name");
-                                    String product_video = object1.getString("product_video");
+                                    String barcode = object1.getString("barcode");
+                                    String size = object1.getString("size");
+                                    String comments = object1.getString("comments");
+                                    String product_video = object1.getString("brand");
                                     String time = object1.getString("time");
-                                    // String product_image = object1.getString("product_image");
-                                    JSONArray product_image = object1.getJSONArray("product_image");
+                                    String status1=object1.getString("status");
+                                   // JSONArray product_image = object1.getJSONArray("image");
+
                                     HashMap<String,String> data=new HashMap<String, String>();
                                     data.put("id", id);
 
                                     data.put("barcode", barcode);
                                     // data.put("product", product);
                                     data.put("size", size);
+                                    data.put("status",status1);
+                                    data.put("userid",userid);
+                                    data.put("product",product);
+                                    data.put("manufacturer",manufacturer);
+                                    data.put("comments",comments);
 
-                                    data.put("status",status);
-                                    data.put("product_categories",product_categories);
-                                    data.put("product_name",product_name);
-                                    data.put("product_video",product_video);
-                                    for(int j=0;j<product_image.length();j++) {
-                                        String image = product_image.get(j).toString();
-                                        data.put("image",image);
+                                        JSONArray product_image1 = object1.getJSONArray("report_image");
+                                        for(int j=0;j<product_image1.length();j++){
+                                           String image1=product_image1.get(j).toString();
+                                           data.put("image",image1);
+
+                                    }
+
+                                    JSONArray userbamme = object1.getJSONArray("name");
+                                    for(int p=0;p<userbamme.length();p++){
+                                        JSONObject object2=userbamme.getJSONObject(p);
+                                        String username=object2.getString("username");
+                                        data.put("username",username);
+                                       /* if(username.equals("0")){
+                                            reporter.setVisibility(View.GONE);
+                                        }
+                                        else{
+                                            reporter.setText(username);
+                                        }*/
                                     }
 
                                     Datalist1.add(data);
@@ -251,7 +285,7 @@ List<Knowlegde_item>  knowlegde_items=new ArrayList<Knowlegde_item>();
 
 
                             } else {
-                                Toast.makeText(getActivity(), "Failed to login..", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getActivity(), "Failed to login..", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
@@ -328,17 +362,23 @@ List<Knowlegde_item>  knowlegde_items=new ArrayList<Knowlegde_item>();
             TextView productname=(TextView)row.findViewById(R.id.heading);
             //HashMap<String, String> map = datArrayList.get(position);
             String image=map.get("image").toString();
-                productname.setText(map.get("product_name"));
-               // reporter.setText(datArrayList.get(i).getReport());
+
+                productname.setText(map.get("product"));
+            reporter.setText(map.get("username"));
                 barcode.setText(map.get("barcode"));
-                status.setText(map.get("status"));
+              status.setText("Pending");
                 //product.setText(datArrayList.get(i).getProduct());
                 size.setText(map.get("size"));
-            Picasso.with(context)
-                    .load(image)
-                    .transform(new RoundedTransformation(100, 0))
-                    .resize(80, 80)
-                    .into(productimage);
+            if(image.equals("")){
+                productimage.setImageResource(R.drawable.icn);
+            }
+            else {
+                Picasso.with(context)
+                        .load(image)
+                        .transform(new RoundedTransformation(100, 0))
+                        .resize(80, 80)
+                        .into(productimage);
+            }
             /*Picasso.with(getActivity())
                     .load(image)
                     .into(productimage);*/

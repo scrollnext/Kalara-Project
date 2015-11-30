@@ -1,5 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    android:focusableInTouchMode="true"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+
+
+    android:id="@+id/productdetail">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ly1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/productname"
+                android:text="Kalra Tea tree Oil"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+              >
+
+                <ImageView
+                    android:id="@+id/know_lib_back_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+android:padding="10dp"
+                    android:src="@drawable/productrrowleft" />
+
+
+                <LinearLayout
+                    android:id="@+id/innerLay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center">
+
+                    <ImageSwitcher
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageSwitcher"
+                        android:background="#000000"
+
+                        />
+                    <!--
+
+                                        <ImageView
+                                            android:id="@+id/know_lib_img"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+
+                                            android:src="@drawable/imgprofile" />
+                    -->
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/know_lib_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
+                    android:src="@drawable/productarrowright" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+               android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <Gallery
+                    android:id="@+id/myGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+
+
+                android:layout_height="wrap_content"
+                android:fillViewport="false"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/commentbg"
+                    android:layout_height="wrap_content"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                            android:textSize="18dp"
+
+                            android:textStyle="bold"
+                            android:id="@+id/reporter"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                         android:layout_marginLeft="5dp"
+
+
+                            android:textSize="13dp"
+
+                            android:id="@+id/date"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Barcode : "
+                            android:textSize="15dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                            android:textSize="15dp"
+                            android:id="@+id/barcode"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Product : "
+                            android:textSize="15dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                            android:textSize="15dp"
+                            android:id="@+id/product"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Size : "
+                            android:textSize="15dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                            android:textSize="15dp"
+                            android:id="@+id/size"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                   <!-- <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Status : "
+                            android:textSize="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text=" "
+                            android:textSize="15dp"
+                            android:id="@+id/status"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Comments "
+
+                            android:textSize="15dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text=" "
+
+
+                            android:textSize="15dp"
+                            android:id="@+id/comments"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:background="@drawable/btn1"
+                android:layout_marginTop="10dp"
+                android:text="Delete Report"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content"
+                android:id="@+id/delete" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+
+
+    android:id="@+id/productdetail">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ly1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+
+           <!-- <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/productname"
+                android:text="Kalra Tea tree Oil"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                >
+
+                <ImageView
+                    android:id="@+id/know_lib_back_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/productrrowleft" />
+
+
+                <LinearLayout
+                    android:id="@+id/innerLay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center">
+
+                    <ImageSwitcher
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageSwitcher"
+                        android:background="#000000"
+
+                        />
+                    &lt;!&ndash;
+
+                                        <ImageView
+                                            android:id="@+id/know_lib_img"
+
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+
+                                            android:src="@drawable/imgprofile" />
+                    &ndash;&gt;
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/know_lib_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/productarrowright" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp"
+
+                >
+
+                <Gallery
+                    android:id="@+id/myGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    />
+
+
+            </LinearLayout>-->
+      <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="0dp"
+
+                android:layout_height="wrap_content">
+               <!--<LinearLayout
+                    android:layout_width="383dp"
+                    android:background="@drawable/top"
+                    android:padding="10dp"
+
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/videoicon"
+
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Product Video"
+                        android:textSize="15dp"
+                        android:textColor="#b6d1e2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>-->
+          <FrameLayout
+              android:id="@+id/youtube_fragment"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:paddingTop="0dp"
+              android:id="@+id/frame1"
+              android:paddingBottom="15dp"
+              android:layout_height="wrap_content">
+
+                <TextView  android:layout_width="wrap_content"
+                    android:id="@+id/productdesc"
+                    android:layout_gravity="center_horizontal"
+
+                    android:textSize="15dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:layout_height="wrap_content"></TextView>
+
+
+
+
+            <com.facebook.login.widget.LoginButton
+                  android:id="@+id/login_button"
+
+                  android:background="@drawable/fb"
+                  android:layout_width="300dp"
+                  android:src="@drawable/fb"
+
+                  android:layout_gravity="center_horizontal"
+                  android:layout_height="60dp"
+                android:visibility="gone"
+                  />
+              <Button
+                    android:id="@+id/custom_login_button"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/fb"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Or Signup using your email address"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/signup"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15dp"
+                    android:text="Signup"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/btnbluye"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Already have an account ? "
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/signin"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15dp"
+                    android:text="Signin"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/btn1"
+                    />
+
+
+            </LinearLayout>
+          </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="0dp"
+
+                android:layout_height="wrap_content">
+               <LinearLayout
+                      android:layout_width="match_parent"
+                      android:background="@color/Coloracrtionprimary"
+                      android:padding="10dp"
+                   android:scaleType="fitXY"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content"
+                   >
+                      <ImageView
+                          android:layout_width="wrap_content"
+                          android:src="@drawable/roduct"
+
+                          android:layout_gravity="center_vertical"
+                          android:layout_height="wrap_content" />
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:text="Our Products"
+                          android:textSize="18dp"
+                          android:textColor="#b6d1e2"
+                          android:layout_marginLeft="10dp"
+                          android:layout_height="wrap_content"
+                         />
+
+                  </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content">
+                    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                    </android.support.v4.view.ViewPager>
+                   <!-- <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/image1"
+
+                        android:layout_height="wrap_content" />-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_above="@+id/arroe"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/arrowleft"
+                            android:src="@drawable/productrrowleft"
+                            android:padding="10dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/arrowright"
+                            android:padding="10dp"
+                            android:src="@drawable/productarrowright"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+
+                        android:id="@+id/arroe"
+android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/desoffer"
+                            android:background="@android:color/transparent"
+                            android:text="hello"
+android:gravity="center_horizontal"
+
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#ffffff"
+
+                            android:layout_height="wrap_content" />
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/Coloracrtionprimary"
+                    android:padding="10dp"
+                    android:scaleType="fitXY"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/gift"
+
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gift" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Gift Voucher"
+                        android:textSize="18dp"
+                        android:textColor="#b6d1e2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+
+                        android:orientation="horizontal"
+                        android:layout_weight="2.0"
+                        >
+                        <LinearLayout
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:paddingLeft="5dp"
+                            android:layout_weight="0.5">
+
+<ImageView
+    android:layout_width="73dp"
+    android:id="@+id/productimage"
+
+    android:layout_height="match_parent" />
+
+
+
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:orientation="vertical"
+                            android:layout_weight="1.5">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/header"
+                                android:text=""
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/offer"
+                                android:text=""
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="15dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/price"
+                                android:text=""
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/desc"
+                                android:text=""
+                                android:layout_height="wrap_content" />
+
+
+
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/join"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="15dp"
+                    android:text="Join Now"
+                    android:textAllCaps="false"
+
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnbluye"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

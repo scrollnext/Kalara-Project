@@ -11,9 +11,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by avigma19 on 10/9/2015.
- */
+
 public class Forgotpassword extends Fragment {
     ProgressDialog pDialog;
 

@@ -1,8 +1,6 @@
 package kalara.tree.oil;
 
-/**
- * Created by avigma19 on 10/9/2015.
- */
+
 public class Knowlegde_item {
     String id;
     String report;

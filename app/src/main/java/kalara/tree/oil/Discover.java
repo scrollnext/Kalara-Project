@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,17 +34,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
-/**
- * Created by avigma19 on 10/7/2015.
- */
+
 public class Discover extends Fragment {
     GridView grid;
     ProgressDialog pDialog;
+    EditText search;
     ImageLoader imageloader;
+    TextView go;
+
     Context context;
+    int value;
     static ArrayList<Knowlegde_item> knowlegde_items=new ArrayList<Knowlegde_item>();
-    ArrayList<HashMap<String, String>> Datalist1;
+    Knowledgeadapter  adapter;
+    static  ArrayList<HashMap<String, String>> Datalist1=new ArrayList<HashMap<String,String>>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,35 +56,53 @@ public class Discover extends Fragment {
         View layout = inflater.inflate(R.layout.discover_productt, container, false);
         this.context=getActivity();
        Navigation_Acivity.title.setText("Discover Products");
-        Navigation_Acivity.sidepannel.setVisibility(View.VISIBLE);
-        Datalist1=new ArrayList<HashMap<String,String>>();
+
+        value=getArguments().getInt("value");
+        if(value==1){
+            Navigation_Acivity.sidepannel.setVisibility(View.INVISIBLE);
+        }
+        else if(value==0){
+            Navigation_Acivity.sidepannel.setVisibility(View.VISIBLE);
+        }
         grid=(GridView)layout.findViewById(R.id.gridview);
+        search=(EditText)layout.findViewById(R.id.search);
+        go=(TextView)layout.findViewById(R.id.go);
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchtext = search.getText().toString().trim();
+                adapter.filter(searchtext);
+            }
+        });
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    String productname=Datalist1.get(position).get("product_name").toString();
-                    String productcategory=Datalist1.get(position).get("product_categories").toString();
-                    String product_url=Datalist1.get(position).get("product_video").toString();
-              //  String productid=Datalist1.get(position).get("").toString();
-                    String id1=Datalist1.get(position).get("id").toString();
-                    Bundle bundle=new Bundle();
-                    bundle.putString("productname",productname);
-                    bundle.putString("productcategory",productcategory);
-                    bundle.putString("product_url",product_url);
-                bundle.putInt("position", position);
-                bundle.putString("id",id1);
+                String productname = Datalist1.get(position).get("product_name").toString();
+                String productcategory = Datalist1.get(position).get("product_categories").toString();
+                String product_url = Datalist1.get(position).get("product_video").toString();
+                //  String productid=Datalist1.get(position).get("").toString();
+                String id1 = Datalist1.get(position).get("id").toString();
 
-                   // bundle.putString("image",productimages);
-                    Fragment loginActivity1=new Product_detail();
-                    loginActivity1.setArguments(bundle);
-                    android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container_body, loginActivity1).commit();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("productname", productname);
+                bundle.putString("productcategory", productcategory);
+                bundle.putString("product_url", product_url);
+                bundle.putInt("position", position);
+                bundle.putString("id", id1);
+                bundle.putInt("value", value);
+                // bundle.putString("image",productimages);
+                Fragment loginActivity1 = new Product_detail();
+                loginActivity1.setArguments(bundle);
+                android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().addToBackStack(null)
+                        .replace(R.id.container_body, loginActivity1).commit();
             }
         });
 
         imageloader=new ImageLoader(context);
+        Datalist1.clear();
         getproducts();
         return layout;
     }
@@ -121,7 +144,7 @@ public class Discover extends Fragment {
                 // Because of we are sending a GET request, we have to pass the
                 // values through the URL
 
-                String url = "http://www.support-4-pc.com/clients/kalara/subscriber.php?action=getproduct";
+                String url = "http://www.support-4-pc.com/clients/kalara/admin/sub.php?action=getproduct";
 
 
                 System.out.println("=======url======" + url);
@@ -234,12 +257,11 @@ public class Discover extends Fragment {
                                 for (int i = 0; i < array.length(); i++) {
                                     object1 = array.getJSONObject(i);
                                     String id = object1.getString("id");
-                                   // String report = object1.getString("report");
-                                    String barcode = object1.getString("barcode");
+                                    // String report = object1.getString("report");
+                                    //  String barcode = object1.getString("barcode");
                                     //String product = object1.getString("product");
                                     String size = object1.getString("size");
-
-                                    String status = object1.getString("status");
+                                   /* String status = object1.getString("status");*/
                                     String product_categories = object1.getString("category");
                                     String product_name = object1.getString("product_name");
                                     String product_video = object1.getString("product_video");
@@ -254,33 +276,43 @@ public class Discover extends Fragment {
                                     knowlegde_items.get(i).setProductvideo(product_video);
                                     knowlegde_items.get(i).setStatus(status);
                                     knowlegde_items.get(i).setTime(time);*/
-                                    for(int j=0;j<product_image.length();j++){
+                                    for (int j = 0; j < product_image.length(); j++) {
                                         String image = product_image.get(j).toString();
 
-                                        knowlegde_items.add(new Knowlegde_item(i,image,id));
-                                        System.out.println("imagesss are" + image+ " "+knowlegde_items.size());
+                                        knowlegde_items.add(new Knowlegde_item(i, image, id));
+                                        System.out.println("imagesss are" + image + " " + knowlegde_items.size());
                                     }
 
 
-                                   HashMap<String,String> data=new HashMap<String, String>();
+                                    HashMap<String, String> data = new HashMap<String, String>();
+                                    JSONArray AVG = object1.getJSONArray("AVG(rating)");
+                                    for(int k=0;k<AVG.length();k++){
+                                        JSONObject jsonObject=AVG.getJSONObject(k);
+                                        String AVG1=jsonObject.getString("AVG(rating)");
+                                        String count1=jsonObject.getString("count(userid)");
+                                        data.put("AVG1", AVG1);
 
+                                        data.put("count1", count1);
+
+
+                                    }
                                     int j;
-                                  //  *//*for( j=0;j<product_image.length();j++) {
-                                       // String image = product_image.get(j).toString();
-                                      //  data.put("image", product_image.get(j).toString());
+                                    //  *//*for( j=0;j<product_image.length();j++) {
+                                    // String image = product_image.get(j).toString();
+                                    //  data.put("image", product_image.get(j).toString());
 
 
-                                   // }*//*
+                                    // }*//*
                                     data.put("id", id);
 
-                                    data.put("barcode", barcode);
+
                                     // data.put("product", product);
                                     data.put("size", size);
 
-                                    data.put("status",status);
-                                    data.put("product_categories",product_categories);
-                                    data.put("product_name",product_name);
-                                    data.put("product_video",product_video);
+                                    //  data.put("status",status);
+                                    data.put("product_categories", product_categories);
+                                    data.put("product_name", product_name);
+                                    data.put("product_video", product_video);
                                     Datalist1.add(data);
                                     System.out.println("vallllllll of thhhh" + id + " " + Datalist1);
                                     /*knowlegde_items.add(new Knowlegde_item(id, report, barcode, product, size, image, status, product_categories,
@@ -289,11 +321,10 @@ public class Discover extends Fragment {
                                 /*    Knowledgeadapter knowledgeadapter=new Knowledgeadapter(getActivity(),knowlegde_items);
                                     knowledgeadapter.notifyDataSetChanged();
                                     grid.setAdapter(knowledgeadapter);*/
-                                    Knowledgeadapter adapter=new Knowledgeadapter(getActivity(),Datalist1);
+                                  adapter = new Knowledgeadapter(getActivity(), Datalist1);
                                     grid.setAdapter(adapter);
 
                                 }
-
 
 
                             } else {
@@ -322,7 +353,7 @@ public class Discover extends Fragment {
 
             Activity context;
             ArrayList<HashMap<String, String>> datArrayList;
-
+            ArrayList<HashMap<String, String>> datArrayList1;
 
 
             public Knowledgeadapter(Activity activity, ArrayList<HashMap<String, String>> datalist1)
@@ -331,6 +362,9 @@ public class Discover extends Fragment {
                 super();
                 this.context=activity;
                 this.datArrayList=datalist1;
+                datArrayList1=new ArrayList<HashMap<String, String>>();
+                datArrayList1.addAll(datArrayList);
+
             }
 
 
@@ -370,13 +404,89 @@ public class Discover extends Fragment {
             ImageView productimage=(ImageView)row.findViewById(R.id.productimage);
             HashMap<String, String> map = datArrayList.get(position);
 String image=knowlegde_items.get(position).getProductimage();
+            ImageView image1=(ImageView)row.findViewById(R.id.image1);
+            ImageView image2=(ImageView)row.findViewById(R.id.image2);
+            ImageView image3=(ImageView)row.findViewById(R.id.image3);
+            ImageView image4=(ImageView)row.findViewById(R.id.image4);
+            ImageView image5=(ImageView)row.findViewById(R.id.image5);
             product.setText(map.get("product_name").toString());
             category.setText(map.get("product_categories").toString());
             System.out.println("image is"+image);
+            String ratingval=map.get("AVG1").toString();
             //imageloader.DisplayImage(image, productimage);
             Picasso.with(getActivity())
                     .load(image)
                     .into(productimage);
+            if(ratingval.equals("null")){
+                image1.setImageResource(R.drawable.nill);
+                image2.setImageResource(R.drawable.nill);
+                image3.setImageResource(R.drawable.nill);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("1.0000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.nill);
+                image3.setImageResource(R.drawable.nill);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("1.5000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.half);
+                image3.setImageResource(R.drawable.nill);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("2.0000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.nill);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("2.5000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.half);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("3.0000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.fill);
+                image4.setImageResource(R.drawable.nill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("3.5000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.fill);
+                image4.setImageResource(R.drawable.half);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("4.0000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.fill);
+                image4.setImageResource(R.drawable.fill);
+                image5.setImageResource(R.drawable.nill);
+            }
+            else if(ratingval.equals("4.5000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.fill);
+                image4.setImageResource(R.drawable.fill);
+                image5.setImageResource(R.drawable.half);
+            }
+            else if(ratingval.equals("5.0000")){
+                image1.setImageResource(R.drawable.fill);
+                image2.setImageResource(R.drawable.fill);
+                image3.setImageResource(R.drawable.fill);
+                image4.setImageResource(R.drawable.fill);
+                image5.setImageResource(R.drawable.fill);
+            }
             /*for(int i=0;i<datArrayList.size();i++){
                // productimage.setImageResource(datArrayList.get(i).getProductname());
 
@@ -386,6 +496,27 @@ String image=knowlegde_items.get(position).getProductimage();
 
             return row;
         }
+            // Filter Class
+            public void filter(String charText) {
+                charText = charText.toLowerCase(Locale.getDefault());
+                datArrayList.clear();
+                if (charText.length() == 0) {
+                    datArrayList.addAll(datArrayList1);
+                }
+                else
+                {
+                    for (HashMap<String,String> wp : datArrayList1)
+                    {
+                        if (wp.get("product_name").toLowerCase(Locale.getDefault()).contains(charText)
+                                )
+                        {
+                            datArrayList.add(wp);
+                        }
+                    }
+                }
+                notifyDataSetChanged();
+            }
 
     }
+
 }

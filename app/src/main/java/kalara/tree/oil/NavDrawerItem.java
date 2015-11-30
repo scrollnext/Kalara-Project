@@ -1,8 +1,6 @@
 package kalara.tree.oil;
 
-/**
- * Created by avigma19 on 10/1/2015.
- */
+
 public class NavDrawerItem {
 
     private String title;

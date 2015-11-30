@@ -34,7 +34,7 @@
 
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
-
+android:src="@drawable/imgcicic"
                         android:id="@+id/image1" />
 
                 </RelativeLayout>
@@ -123,4 +123,12 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView2"
+        android:layout_gravity="right" />
 </LinearLayout>

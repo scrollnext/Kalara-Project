@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -26,7 +27,7 @@ import java.util.List;
 public class FragmentDrawer extends Fragment {
 
     private static String TAG = FragmentDrawer.class.getSimpleName();
-
+    int i=0;
     private RecyclerView recyclerView;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
@@ -56,8 +57,30 @@ public class FragmentDrawer extends Fragment {
 
         // preparing navigation drawer items
         //File f =getActivity().getDatabasePath("/data/data/kalara.tree.oil/shared_prefs/Login.xml");
+        File f = getActivity().getDatabasePath("/data/data/kalara.tree.oil/shared_prefs/Login.xml");
 
-        if (Navigation_Acivity.value==1) {
+        if (f.exists()) {
+            for (int i = 0; i < titles1.length; i++) {
+                NavDrawerItem navItem = new NavDrawerItem();
+                navItem.setTitle(titles1[i]);
+                navItem.setDesc(desc1[i]);
+                navItem.setIcon(icons1[i]);
+                //navItem.setIcon(background[i]);
+                data.add(navItem);
+
+            }
+        }
+            else{
+                for (int i = 0; i < titles.length; i++) {
+                    NavDrawerItem navItem = new NavDrawerItem();
+                    navItem.setTitle(titles[i]);
+                    navItem.setDesc(desc[i]);
+                    navItem.setIcon(icons[i]);
+                    //navItem.setIcon(background[i]);
+                    data.add(navItem);
+                }
+            }
+       /* if (Navigation_Acivity.value==1) {
             for (int i = 0; i < titles1.length; i++) {
                 NavDrawerItem navItem = new NavDrawerItem();
                 navItem.setTitle(titles1[i]);
@@ -75,8 +98,9 @@ public class FragmentDrawer extends Fragment {
                 navItem.setIcon(icons[i]);
                 //navItem.setIcon(background[i]);
                 data.add(navItem);
-            }
-        }
+            }*/
+
+
 
         return data;
     }
@@ -119,6 +143,9 @@ public class FragmentDrawer extends Fragment {
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
         containerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
+
+
+
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar,R.string.drawer_open,R.string.drawer_close ) {
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -138,7 +165,27 @@ public class FragmentDrawer extends Fragment {
                 toolbar.setAlpha(1 - slideOffset / 2);
             }
         };
+        mDrawerToggle.setHomeAsUpIndicator(R.drawable.menu);
+      //  mDrawerToggle.setDrawerIndicatorEnabled(false);
 
+        // mDrawerToggle.setHomeAsUpIndicator(R.drawable.menu_icon);
+        /*toolbar.setNavigationIcon(R.drawable.menu);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               {
+//                    if(i==0){
+
+               *//*         i=1;
+                    }
+                   else if(i==1){
+                        mDrawerLayout.closeDrawer(Gravity.RIGHT);
+                        i=0;
+                    }*//*
+                }
+
+            }
+        });*/
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.post(new Runnable() {
             @Override
